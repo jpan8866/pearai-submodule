@@ -297,27 +297,32 @@
       {
         "command": "pearai.focusContinueInput",
         "mac": "cmd+l",
-        "key": "ctrl+l"
+        "key": "ctrl+l",
+        "when": "editorTextFocus && pearai.active"
       },
       {
         "command": "pearai.focusContinueInputWithoutClear",
         "mac": "cmd+shift+l",
-        "key": "ctrl+shift+l"
+        "key": "ctrl+shift+l",
+        "when": "editorTextFocus && pearai.active"
       },
       {
         "command": "pearai.toggleAuxiliaryBar",
         "mac": "alt+cmd+l",
-        "key": "alt+ctrl+l"
+        "key": "alt+ctrl+l",
+        "when": "pearai.active"
       },
       {
         "command": "pearai.acceptDiff",
         "mac": "shift+cmd+enter",
-        "key": "shift+ctrl+enter"
+        "key": "shift+ctrl+enter",
+        "when": "pearai.active"
       },
       {
         "command": "pearai.rejectDiff",
         "mac": "shift+cmd+backspace",
-        "key": "shift+ctrl+backspace"
+        "key": "shift+ctrl+backspace",
+        "when": "pearai.active"
       },
       {
         "command": "pearai.rejectDiff",

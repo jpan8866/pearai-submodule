@@ -36,6 +36,8 @@ async function dynamicImportAndActivate(context: vscode.ExtensionContext) {
 export function activate(context: vscode.ExtensionContext) {
   setupCa();
   setupSettingsAndInformUser();
+  // Fix Issue #262: Give priority to PearAI commands via context
+  vscode.commands.executeCommand('setContext', 'pearai.active', true);
   return dynamicImportAndActivate(context);
 }
 
