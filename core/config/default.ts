@@ -95,9 +95,26 @@ export const defaultConfig: SerializedContinueConfig = {
     {
       "model": "pearai_model",
       "contextLength": 200000,
-      "title": "PearAI Server",
+      "title": "PearAI Server (Recommended)",
       "systemMessage": "You are an expert software developer. You give helpful and concise responses.",
-      "provider": "pearai_server"
+      "provider": "pearai_server",
+      "isDefault": true
+    },
+    {
+      "model": "claude_sonnet",
+      "contextLength": 200000,
+      "title": "Claude 3.5 Sonnet",
+      "systemMessage": "You are an expert software developer. You give helpful and concise responses.",
+      "provider": "anthropic",
+      "isDefault": true
+    },
+    {
+      "model": "chat_gpt4o",
+      "contextLength": 200000,
+      "title": "GPT4o",
+      "systemMessage": "You are an expert software developer. You give helpful and concise responses.",
+      "provider": "openai",
+      "isDefault": true
     }
   ],
   customCommands: [
@@ -116,6 +133,17 @@ export const defaultConfig: SerializedContinueConfig = {
   contextProviders: defaultContextProvidersVsCode,
   slashCommands: defaultSlashCommandsVscode,
 };
+function getConfigJsonPath(ideType: IdeType = "vscode"): string {
+  const p = path.join(getContinueGlobalPath(), "config.json");
+  if (!fs.existsSync(p)) {
+    if (ideType === "jetbrains") {
+      fs.writeFileSync(p, JSON.stringify(defaultConfigJetBrains, null, 2));
+    } else {
+      fs.writeFileSync(p, JSON.stringify(defaultConfig, null, 2));
+    }
+  }
+  return p;
+}
 
 export const defaultConfigJetBrains: SerializedContinueConfig = {
   models: FREE_TRIAL_MODELS,

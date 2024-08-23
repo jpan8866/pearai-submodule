@@ -756,6 +756,7 @@ export interface ModelDescription {
   requestOptions?: RequestOptions;
   promptTemplates?: { [key: string]: string };
   capabilities?: ModelCapability;
+  isDefault?: boolean
 }
 
 export type EmbeddingsProviderName =
