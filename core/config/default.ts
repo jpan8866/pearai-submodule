@@ -101,7 +101,7 @@ export const defaultConfig: SerializedContinueConfig = {
       "isDefault": true
     },
     {
-      "model": "claude_sonnet",
+      "model": "claude-3-5-sonnet-20240620",
       "contextLength": 200000,
       "title": "Claude 3.5 Sonnet",
       "systemMessage": "You are an expert software developer. You give helpful and concise responses.",
@@ -109,9 +109,9 @@ export const defaultConfig: SerializedContinueConfig = {
       "isDefault": true
     },
     {
-      "model": "gpt4o",
+      "model": "gpt-4o",
       "contextLength": 200000,
-      "title": "GPT4o",
+      "title": "GPT-4o",
       "systemMessage": "You are an expert software developer. You give helpful and concise responses.",
       "provider": "openai",
       "isDefault": true
