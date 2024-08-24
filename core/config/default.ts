@@ -109,7 +109,7 @@ export const defaultConfig: SerializedContinueConfig = {
       "isDefault": true
     },
     {
-      "model": "chat_gpt4o",
+      "model": "gpt4o",
       "contextLength": 200000,
       "title": "GPT4o",
       "systemMessage": "You are an expert software developer. You give helpful and concise responses.",
@@ -133,17 +133,6 @@ export const defaultConfig: SerializedContinueConfig = {
   contextProviders: defaultContextProvidersVsCode,
   slashCommands: defaultSlashCommandsVscode,
 };
-function getConfigJsonPath(ideType: IdeType = "vscode"): string {
-  const p = path.join(getContinueGlobalPath(), "config.json");
-  if (!fs.existsSync(p)) {
-    if (ideType === "jetbrains") {
-      fs.writeFileSync(p, JSON.stringify(defaultConfigJetBrains, null, 2));
-    } else {
-      fs.writeFileSync(p, JSON.stringify(defaultConfig, null, 2));
-    }
-  }
-  return p;
-}
 
 export const defaultConfigJetBrains: SerializedContinueConfig = {
   models: FREE_TRIAL_MODELS,
