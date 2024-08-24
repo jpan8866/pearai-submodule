@@ -182,7 +182,7 @@ function ModelSelect() {
         return {
           value: model.title,
           title: modelSelectTitle(model),
-          isDefault: model.isDefault
+          isDefault: model?.isDefault
         };
       }),
     );

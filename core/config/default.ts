@@ -94,28 +94,28 @@ export const defaultConfig: SerializedContinueConfig = {
   models: [
     {
       "model": "pearai_model",
-      "contextLength": 200000,
-      "title": "PearAI Server (Recommended)",
+      "contextLength": 128000,
+      "title": "PearAI Server",
+      "systemMessage": "You are an expert software developer. You give helpful and concise responses.",
+      "provider": "pearai_server",
+      "isDefault": true
+    },
+    {
+      "model": "gpt-4o",
+      "contextLength": 128000,
+      "title": "GPT-4o",
       "systemMessage": "You are an expert software developer. You give helpful and concise responses.",
       "provider": "pearai_server",
       "isDefault": true
     },
     {
       "model": "claude-3-5-sonnet-20240620",
-      "contextLength": 200000,
+      "contextLength": 128000,
       "title": "Claude 3.5 Sonnet",
       "systemMessage": "You are an expert software developer. You give helpful and concise responses.",
-      "provider": "anthropic",
+      "provider": "pearai_server",
       "isDefault": true
     },
-    {
-      "model": "gpt-4o",
-      "contextLength": 200000,
-      "title": "GPT-4o",
-      "systemMessage": "You are an expert software developer. You give helpful and concise responses.",
-      "provider": "openai",
-      "isDefault": true
-    }
   ],
   customCommands: [
     {

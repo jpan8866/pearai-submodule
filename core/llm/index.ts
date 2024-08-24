@@ -98,6 +98,7 @@ export abstract class BaseLLM implements ILLM {
   apiBase?: string;
   capabilities?: ModelCapability
   refreshToken?: string;
+  isDefault?: boolean | undefined;
 
   engine?: string;
   apiVersion?: string;
@@ -125,6 +126,7 @@ export abstract class BaseLLM implements ILLM {
     // Set default options
     const options = {
       title: (this.constructor as typeof BaseLLM).providerName,
+      isDefault: (this.constructor as typeof BaseLLM).defaultOptions?.isDefault,
       ...(this.constructor as typeof BaseLLM).defaultOptions,
       ..._options,
     };
@@ -134,7 +136,7 @@ export abstract class BaseLLM implements ILLM {
 
     const templateType =
       options.template ?? autodetectTemplateType(options.model);
-
+    this.isDefault = options.isDefault;
     this.title = options.title;
     this.uniqueId = options.uniqueId ?? "None";
     this.systemMessage = options.systemMessage;

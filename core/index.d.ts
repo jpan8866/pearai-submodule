@@ -65,6 +65,7 @@ export interface ILLM extends LLMOptions {
   apiKey?: string;
   apiBase?: string;
   refreshToken?: string;
+  isDefault?: boolean;
 
   engine?: string;
   apiVersion?: string;
@@ -330,6 +331,7 @@ export interface LLMOptions {
   aiGatewaySlug?: string;
   apiBase?: string;
   refreshToken?: string;
+  isDefault?: boolean;
 
   useLegacyCompletionsEndpoint?: boolean;
 
@@ -756,7 +758,8 @@ export interface ModelDescription {
   requestOptions?: RequestOptions;
   promptTemplates?: { [key: string]: string };
   capabilities?: ModelCapability;
-  isDefault?: boolean
+  isDefault?: boolean;
+  _llmOptions?: LLMOptions;
 }
 
 export type EmbeddingsProviderName =
