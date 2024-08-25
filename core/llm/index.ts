@@ -126,7 +126,6 @@ export abstract class BaseLLM implements ILLM {
     // Set default options
     const options = {
       title: (this.constructor as typeof BaseLLM).providerName,
-      isDefault: (this.constructor as typeof BaseLLM).defaultOptions?.isDefault,
       ...(this.constructor as typeof BaseLLM).defaultOptions,
       ..._options,
     };

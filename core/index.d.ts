@@ -65,7 +65,6 @@ export interface ILLM extends LLMOptions {
   apiKey?: string;
   apiBase?: string;
   refreshToken?: string;
-  isDefault?: boolean;
 
   engine?: string;
   apiVersion?: string;
@@ -759,7 +758,6 @@ export interface ModelDescription {
   promptTemplates?: { [key: string]: string };
   capabilities?: ModelCapability;
   isDefault?: boolean;
-  _llmOptions?: LLMOptions;
 }
 
 export type EmbeddingsProviderName =
