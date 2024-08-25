@@ -103,7 +103,7 @@ export const defaultConfig: SerializedContinueConfig = {
     {
       "model": "gpt-4o",
       "contextLength": 128000,
-      "title": "GPT-4o",
+      "title": "GPT-pear",
       "systemMessage": "You are an expert software developer. You give helpful and concise responses.",
       "provider": "pearai_server",
       "isDefault": true
@@ -111,7 +111,7 @@ export const defaultConfig: SerializedContinueConfig = {
     {
       "model": "claude-3-5-sonnet-20240620",
       "contextLength": 128000,
-      "title": "Claude 3.5 Sonnet",
+      "title": "Claude3.5-pear",
       "systemMessage": "You are an expert software developer. You give helpful and concise responses.",
       "provider": "pearai_server",
       "isDefault": true
