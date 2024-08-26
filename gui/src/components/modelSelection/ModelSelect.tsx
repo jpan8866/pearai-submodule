@@ -145,7 +145,7 @@ function ModelOption({
 }
 
 function modelSelectTitle(model: any): string {
-  if (model?.title) return (model.title.toLowerCase().includes("pearai") ? "PearAI" : model?.title);
+  if (model?.title) return model?.title;
   if (model?.model !== undefined && model?.model.trim() !== "") {
     if (model?.class_name) {
       return `${model?.class_name} - ${model?.model}`;
@@ -182,7 +182,7 @@ function ModelSelect() {
         return {
           value: model.title,
           title: modelSelectTitle(model),
-          isDefault: model?.isDefault
+          isDefault: model?.isDefault,
         };
       }),
     );
