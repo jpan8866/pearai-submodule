@@ -53,6 +53,7 @@ import {
   readAllGlobalPromptFiles,
 } from "../util/paths.js";
 import {
+  defaultConfig,
   defaultContextProvidersJetBrains,
   defaultContextProvidersVsCode,
   defaultSlashCommandsJetBrains,
@@ -604,6 +605,20 @@ async function buildConfigTs() {
   return fs.readFileSync(getConfigJsPath(), "utf8");
 }
 
+function enforceDefaultModels(config: SerializedContinueConfig): void {
+  // check if all default models are present, add if not
+  const defaultModels = defaultConfig.models.filter(model => model.isDefault === true);
+  defaultModels.forEach(defaultModel => {
+    const modelExists = config.models.some(
+      configModel => configModel.title === defaultModel.title && configModel.provider === defaultModel.provider
+    );
+
+    if (!modelExists) {
+      config.models.push({ ...defaultModel });
+    }
+  });
+}
+
 async function loadFullConfigNode(
   ide: IDE,
   workspaceConfigs: ContinueRcJson[],
@@ -624,7 +639,9 @@ async function loadFullConfigNode(
 
   // Convert serialized to intermediate config
   let intermediate = await serializedToIntermediateConfig(serialized, ide);
-
+  // check and enforce default models
+  enforceDefaultModels(serialized);
+  
   // Apply config.ts to modify intermediate config
   const configJsContents = await buildConfigTs();
   if (configJsContents) {
