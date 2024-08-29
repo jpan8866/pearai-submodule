@@ -115,7 +115,7 @@ const vscodeShortcuts: KeyboardShortcutProps[] = [
   {
     mac: "CMD L",
     windows: "CTRL L",
-    description: "Append Code + New Session",
+    description: "New Session / Add Code",
   },
   {
     mac: "CMD I",
@@ -133,14 +133,14 @@ const vscodeShortcuts: KeyboardShortcutProps[] = [
     description: "Close Chat",
   },
   {
-    mac: "CMD O",
-    windows: "CTRL O",
+    mac: "CMD H",
+    windows: "CTRL H",
     description: "Open History",
   },
   {
     mac: "CMD SHIFT L",
     windows: "CTRL SHIFT L",
-    description: "Select Code",
+    description: "Append Code",
   },
   {
     mac: "CMD SHIFT ENTER",
